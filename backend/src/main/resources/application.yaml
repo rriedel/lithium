@@ -1,0 +1,20 @@
+quarkus:
+  banner:
+    path: /lithium.banner.txt
+  datasource:
+    db-kind: postgresql 
+    reactive:
+      url: postgresql:///contacts
+      max-size: 20
+    username: contacts
+    password: contacts
+
+  smallrye-openapi:
+    info-title: Lithium API
+    info-version: 1.0.0
+    info-description: Beschreibung kommt noch
+    info-contact-email: webmaster@npsdd.de
+    info-contact-name: Ralf Riedel
+    info-contact-url: http://exampleurl.com/contact
+    info-license-name: Apache 2.0
+    info-license-url: https://www.apache.org/licenses/LICENSE-2.0.html
