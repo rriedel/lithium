@@ -4,7 +4,7 @@
     http://www.liquibase.org/xml/ns/dbchangelog
     https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <changeSet author="rriedel" id="1">
+    <changeSet author="rriedel" id="001-valueset">
         <createTable tableName="valueset">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true" />
@@ -27,5 +27,9 @@
             referencedColumnNames="id" 
             constraintName="fk_valueset" 
         />
+    </changeSet>
+
+    <changeSet id="001-testdata" author="rriedel" context="dev">
+        <sqlFile path="db/testdata/valuesets.sql" />
     </changeSet>
 </databaseChangeLog>

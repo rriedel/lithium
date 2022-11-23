@@ -1,6 +1,7 @@
 package org.lithium.suggestions.api;
 
 import org.lithium.suggestions.domain.ValueSet;
+import org.lithium.suggestions.domain.ValueSetEntryComparator;
 
 public class SuggestionSetDTO {
 
@@ -12,7 +13,8 @@ public class SuggestionSetDTO {
 		this.key = set.key;
 		this.locale = set.locale;
 		this.values = set.values.stream()
-			.map(suggestion -> suggestion.value)
+			.sorted(ValueSetEntryComparator.instance)
+			.map(entry -> entry.value)
 			.toArray(String[]::new);   
 	} 
 }
