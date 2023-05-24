@@ -5,18 +5,19 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import javax.enterprise.context.ApplicationScoped;
-
 import org.lithium.suggestions.util.LocaleComparator;
 
 import io.quarkus.hibernate.reactive.panache.PanacheRepository;
+import io.quarkus.hibernate.reactive.panache.common.WithSession;
 import io.smallrye.mutiny.Uni;
+import jakarta.enterprise.context.ApplicationScoped;
 import lombok.extern.slf4j.Slf4j;
 
 @ApplicationScoped
 @Slf4j
 public class ValueSetRespository implements PanacheRepository<ValueSet> {
 
+    @WithSession
     public Uni<List<ValueSet>> listAllForLocale(Locale locale) {
         log.debug("get all valuesets for locale: {}", locale);
         return listAll().map(sets -> filterByLocale(sets, locale));

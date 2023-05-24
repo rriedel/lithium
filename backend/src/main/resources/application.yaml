@@ -4,7 +4,7 @@ quarkus:
   datasource:
     db-kind: postgresql 
     reactive:
-      url: postgresql:///contacts
+      url: vertx-reactive:postgresql://localhost:5432/contacts
       max-size: 20
     username: contacts
     password: contacts

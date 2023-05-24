@@ -2,15 +2,13 @@ package org.lithium.suggestions.domain;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlTransient;
-
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OrderBy;
+import jakarta.persistence.Table;
 import lombok.Getter;
 
 @Entity
@@ -24,7 +22,6 @@ public class ValueSet extends PanacheEntity {
 	/** an IETF BCP 47 language tag string */
 	public String locale;
 
-	@XmlTransient
 	@OneToMany(mappedBy = "valueset", fetch = FetchType.EAGER, cascade = { CascadeType.ALL }, orphanRemoval = true)
 	@OrderBy("rank DESC")
 	public List<ValueSetEntry> values;

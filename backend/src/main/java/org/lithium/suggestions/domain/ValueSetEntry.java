@@ -1,12 +1,10 @@
 package org.lithium.suggestions.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlTransient;
-
 import io.quarkus.hibernate.reactive.panache.PanacheEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 
 /**
@@ -25,6 +23,5 @@ public class ValueSetEntry extends PanacheEntity {
 
     @ManyToOne
 	@JoinColumn(name = "set")
-	@XmlTransient
 	public ValueSet valueset;
 }
