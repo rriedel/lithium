@@ -6,8 +6,14 @@ quarkus:
     reactive:
       url: vertx-reactive:postgresql://localhost:5432/contacts
       max-size: 20
+    jdbc:
+      url: jdbc:postgresql://localhost:5432/contacts
+      max-size: 16
     username: contacts
     password: contacts
+  
+  liquibase:
+    migrate-at-start: true
 
   smallrye-openapi:
     info-title: Lithium API
@@ -18,3 +24,8 @@ quarkus:
     info-contact-url: http://exampleurl.com/contact
     info-license-name: Apache 2.0
     info-license-url: https://www.apache.org/licenses/LICENSE-2.0.html
+
+  micrometer:
+    export:
+      prometheus:
+        enabled: true

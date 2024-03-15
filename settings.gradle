@@ -11,4 +11,3 @@ pluginManagement {
 rootProject.name='lithium'
 
 include 'backend'
-include 'maintenance'
