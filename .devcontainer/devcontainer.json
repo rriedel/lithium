@@ -4,29 +4,30 @@
 	"name": "Lithium Development",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
-	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	"forwardPorts": [5432],
-	
+	"workspaceFolder": "/workspace",
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or with the host.
+	// "forwardPorts": [5432],
+	"forwardPorts": [
+		"db:5432",
+		8080
+	],
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
 		"ghcr.io/devcontainers/features/java:1": {
 			"version": 21,
 			"installGradle": true,
-			"gradleVersion": 8.6			
+			"gradleVersion": 8.6
 		},
 		"ghcr.io/devcontainers-contrib/features/quarkus-sdkman:2": {}
 	},
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// This can be used to network with other containers or with the host.
-	// "forwardPorts": [5432],
-
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "java -version",
-
+	
 	// Configure tool-specific properties.
 	"customizations": {
-		"vscode":{
+		"vscode": {
 			"extensions": [
 				"ms-vscode-remote.remote-containers",
 				"ms-azuretools.vscode-docker",
@@ -34,7 +35,6 @@
 			]
 		}
 	}
-
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
 }
